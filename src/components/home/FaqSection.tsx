@@ -10,7 +10,7 @@ export default function FaqSection() {
     {
       question: 'Is website hosting really included for a full year?',
       answer:
-        'Yes. Every package (Basic Plan ₹7,999, Medium Website Plan ₹14,999, and Higher Website Plan ₹19,999) includes 1 full year of cloud hosting at zero additional charge. After the first year, an annual hosting renewal is required to keep your website live and secured.',
+        'Yes. Every package (Basic Plan ₹7,999, Standard Plan ₹14,999, and Premium Plan ₹19,999) includes 1 full year of cloud hosting at zero additional charge. After the first year, an annual hosting renewal is required to keep your website live and secured.',
     },
     {
       question: 'How does the ₹1,000 domain policy work?',
@@ -23,14 +23,14 @@ export default function FaqSection() {
         'A minor content edit includes adding or deleting a product or service, updating prices, replacing photos, changing phone numbers/addresses, or modifying paragraph text. It does not include redesigning whole page structures, altering the underlying layout, or coding major new custom features.',
     },
     {
-      question: 'How do content edits work on the Higher Website Plan?',
+      question: 'How do content edits work on the Premium Plan?',
       answer:
-        'With the Higher Website Plan (₹19,999), you receive your own private admin dashboard. You do not need to pay for minor edit packages because you can log in anytime to update products, images, text, and business information yourself with zero editing fees.',
+        'With the Premium Plan (₹19,999), you receive your own private admin dashboard. You do not need to pay for minor edit packages because you can log in anytime to update products, images, text, and business information yourself with zero editing fees.',
     },
     {
       question: 'Why does only the Basic Plan package have a demo button?',
       answer:
-        'The Basic Plan uses a standardized, high-performance 5-page layout that we can showcase via a live demo. The Medium Website Plan and Higher Website Plan packages are custom-crafted and tailored specifically around each client’s unique brand identity and functional scope.',
+        'The Basic Plan uses a standardized, high-performance 5-page layout that we can showcase via a live demo. The Standard Plan and Premium Plan packages are custom-crafted and tailored specifically around each client’s unique brand identity and functional scope.',
     },
     {
       question: 'How long does website development take?',

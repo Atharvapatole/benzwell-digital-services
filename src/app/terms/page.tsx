@@ -43,13 +43,13 @@ export default async function TermsPage() {
           <section className="space-y-3 text-sm text-slate-600 leading-relaxed">
             <h2 className="text-lg font-bold text-slate-900">4. Content Edits & Maintenance Policy</h2>
             <p>
-              For Basic Plan and Medium Website Plan packages, three minor edits are included free of charge (such as
+              For Basic Plan and Standard Plan packages, three minor edits are included free of charge (such as
               adding or removing products, swapping images, updating text or contact details). Major
               structural rebuilds, layout overhauls, or new backend features are not included and require
               a separate quote. Additional minor edits can be purchased at ₹1,000 for five edits.
             </p>
             <p>
-              For the Higher Website Plan package, content edits within the supported admin dashboard can be performed
+              For the Premium Plan package, content edits within the supported admin dashboard can be performed
               directly by the customer with zero editing charges.
             </p>
           </section>

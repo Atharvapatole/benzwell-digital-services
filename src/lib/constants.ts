@@ -63,7 +63,7 @@ export const DEFAULT_PLANS: Plan[] = [
       'Domain included if registration price is ₹1,000 or less',
     ],
     not_included: [
-      'Self-service admin panel (available in Higher Plan)',
+      'Self-service admin panel (available in Premium Plan)',
       'Database-driven dynamic backend or user logins',
       'E-commerce payment gateway checkout',
       'Major structural redesigns or complete layout overhauls',
@@ -104,7 +104,7 @@ export const DEFAULT_PLANS: Plan[] = [
   },
   {
     slug: 'medium',
-    name: 'Medium Website Plan',
+    name: 'Standard Plan',
     price: 14999,
     original_price: 21999,
     currency: '₹',
@@ -142,7 +142,7 @@ export const DEFAULT_PLANS: Plan[] = [
       'Domain included if registration price is ₹1,000 or less',
     ],
     not_included: [
-      'Admin content management dashboard (available in Higher Plan)',
+      'Admin content management dashboard (available in Premium Plan)',
       'Backend database integration for self-service edits',
       'Full custom backend API architecture',
     ],
@@ -162,14 +162,14 @@ export const DEFAULT_PLANS: Plan[] = [
     ],
     faqs: [
       {
-        question: 'Why is Medium Website Plan the recommended package?',
+        question: 'Why is Standard Plan the recommended package?',
         answer:
-          'Medium Website Plan provides custom design, bespoke sections, and brand-tailored styling that gives your business an elevated corporate appearance without the overhead of maintaining a database backend.',
+          'Standard Plan provides custom design, bespoke sections, and brand-tailored styling that gives your business an elevated corporate appearance without the overhead of maintaining a database backend.',
       },
       {
-        question: 'Is there a demo for the Medium Website Plan?',
+        question: 'Is there a demo for the Standard Plan?',
         answer:
-          'No demo button is shown for the Medium Website Plan because every Medium website is uniquely designed from scratch according to the specific branding and layouts of each client.',
+          'No demo button is shown for the Standard Plan because every Standard website is uniquely designed from scratch according to the specific branding and layouts of each client.',
       },
     ],
     is_active: true,
@@ -177,7 +177,7 @@ export const DEFAULT_PLANS: Plan[] = [
   },
   {
     slug: 'higher',
-    name: 'Higher Website Plan',
+    name: 'Premium Plan',
     price: 19999,
     original_price: 29999,
     currency: '₹',
@@ -187,7 +187,7 @@ export const DEFAULT_PLANS: Plan[] = [
     recommended: false,
     demo_url: null, // As specified: Do not display a demo button for this plan
     features: [
-      'Everything included in the Medium Website Plan where applicable',
+      'Everything included in the Standard Plan where applicable',
       'Fully customized frontend',
       'Full-stack backend development',
       'Custom admin dashboard',
@@ -205,7 +205,7 @@ export const DEFAULT_PLANS: Plan[] = [
       'No paid minor-edit packages are required for normal content changes that the client can perform through their admin panel. The client controls the supported website content through the admin dashboard. Major new features, structural redesigns and additional development work outside the agreed scope may be quoted separately.',
     additional_edits_cost: 'Self-service editing via your admin dashboard (zero editing fees)',
     included: [
-      'Everything in the Medium Website Plan where applicable',
+      'Everything in the Standard Plan where applicable',
       'Custom secure Admin Dashboard with authenticated login',
       'Full-stack backend with PostgreSQL database integration',
       'Self-service management: add, edit, delete products & update business info',
@@ -235,7 +235,7 @@ export const DEFAULT_PLANS: Plan[] = [
     ],
     faqs: [
       {
-        question: 'Do I need to pay for minor edits with the Higher Website Plan?',
+        question: 'Do I need to pay for minor edits with the Premium Plan?',
         answer:
           'No! You get your own secure admin panel. You can add, edit, or delete products, change phone numbers, update text, and upload images yourself anytime without paying for minor edits.',
       },
@@ -252,8 +252,8 @@ export const DEFAULT_PLANS: Plan[] = [
 
 export const PLAN_OPTIONS = [
   { value: 'Basic Plan – ₹7,999', label: 'Basic Plan – ₹7,999' },
-  { value: 'Medium Website Plan – ₹14,999', label: 'Medium Website Plan – ₹14,999' },
-  { value: 'Higher Website Plan – ₹19,999', label: 'Higher Website Plan – ₹19,999' },
+  { value: 'Standard Plan – ₹14,999', label: 'Standard Plan – ₹14,999' },
+  { value: 'Premium Plan – ₹19,999', label: 'Premium Plan – ₹19,999' },
   { value: 'Not Sure – Need Guidance', label: 'Not Sure – Need Guidance' },
 ];
 

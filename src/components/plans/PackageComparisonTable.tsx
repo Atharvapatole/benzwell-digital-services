@@ -117,7 +117,7 @@ export default function PackageComparisonTable({ currentSlug }: PackageCompariso
                 }`}
               >
                 <div className="flex items-center justify-center gap-1">
-                  <span>Medium Website Plan</span>
+                  <span>Standard Plan</span>
                   <Sparkles className="w-3 h-3 text-brand-600" />
                 </div>
                 <div className="text-[11px] font-normal text-slate-500 mt-0.5">₹14,999</div>
@@ -127,7 +127,7 @@ export default function PackageComparisonTable({ currentSlug }: PackageCompariso
                   currentSlug === 'higher' || currentSlug === 'full-stack' ? 'bg-brand-50/80 text-brand-900' : ''
                 }`}
               >
-                <div>Higher Website Plan</div>
+                <div>Premium Plan</div>
                 <div className="text-[11px] font-normal text-slate-500 mt-0.5">₹19,999</div>
               </th>
             </tr>
@@ -178,7 +178,7 @@ export default function PackageComparisonTable({ currentSlug }: PackageCompariso
                   )}
                 </td>
 
-                {/* Higher Website Plan Column */}
+                {/* Premium Plan Column */}
                 <td
                   className={`p-4 sm:p-5 text-center text-xs ${
                     currentSlug === 'higher' || currentSlug === 'full-stack' ? 'bg-brand-50/30 font-medium' : ''

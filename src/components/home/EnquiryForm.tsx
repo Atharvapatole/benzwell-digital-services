@@ -62,9 +62,12 @@ export default function EnquiryForm({ initialPlan, whatsappNumber = '+9198765432
         (p) =>
           p.value === queryPlan ||
           (queryPlan.toLowerCase().includes('basic') && p.value.includes('Basic')) ||
-          (queryPlan.toLowerCase().includes('medium') && p.value.includes('Medium')) ||
-          ((queryPlan.toLowerCase().includes('higher') || queryPlan.toLowerCase().includes('full stack')) &&
-            p.value.includes('Higher'))
+          ((queryPlan.toLowerCase().includes('standard') || queryPlan.toLowerCase().includes('medium')) &&
+            p.value.includes('Standard')) ||
+          ((queryPlan.toLowerCase().includes('premium') ||
+            queryPlan.toLowerCase().includes('higher') ||
+            queryPlan.toLowerCase().includes('full stack')) &&
+            p.value.includes('Premium'))
       );
       if (found) {
         setValue('selected_plan', found.value as LeadFormData['selected_plan']);

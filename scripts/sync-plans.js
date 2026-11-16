@@ -18,9 +18,9 @@ const supabase = createClient(
 );
 
 async function syncPlans() {
-  console.log('--- Syncing Plans in Supabase Database ---');
+  console.log('--- Syncing Plans in Supabase Database to Official Names ---');
 
-  // 1. Update basic
+  // 1. Basic Plan
   const { error: e1 } = await supabase
     .from('plans')
     .update({ name: 'Basic Plan', updated_at: new Date().toISOString() })
@@ -28,44 +28,41 @@ async function syncPlans() {
   if (e1) console.error('Error updating basic:', e1);
   else console.log('Updated basic -> Basic Plan');
 
-  // 2. Update medium
+  // 2. Standard Plan
   const { error: e2 } = await supabase
     .from('plans')
-    .update({ name: 'Medium Website Plan', updated_at: new Date().toISOString() })
+    .update({ name: 'Standard Plan', updated_at: new Date().toISOString() })
     .eq('slug', 'medium');
   if (e2) console.error('Error updating medium:', e2);
-  else console.log('Updated medium -> Medium Website Plan');
+  else console.log('Updated medium -> Standard Plan');
 
-  // 3. Handle higher / full-stack
-  // Check if 'higher' exists
+  // 3. Premium Plan
+  // Update higher row if exists
   const { data: higherRow } = await supabase.from('plans').select('*').eq('slug', 'higher').maybeSingle();
   const { data: fullStackRow } = await supabase.from('plans').select('*').eq('slug', 'full-stack').maybeSingle();
 
-  if (fullStackRow && !higherRow) {
-    // Insert 'higher' copying fullStackRow
+  if (higherRow) {
+    await supabase
+      .from('plans')
+      .update({ name: 'Premium Plan', updated_at: new Date().toISOString() })
+      .eq('slug', 'higher');
+    console.log('Updated higher -> Premium Plan');
+  } else if (fullStackRow) {
     const newHigher = {
       ...fullStackRow,
       slug: 'higher',
-      name: 'Higher Website Plan',
+      name: 'Premium Plan',
       sort_order: 3,
       updated_at: new Date().toISOString()
     };
-    const { error: insErr } = await supabase.from('plans').insert([newHigher]);
-    if (insErr) console.error('Error creating higher plan:', insErr);
-    else {
-      console.log('Created higher -> Higher Website Plan');
-      // Delete old full-stack row
-      await supabase.from('plans').delete().eq('slug', 'full-stack');
-    }
-  } else if (higherRow) {
-    await supabase
-      .from('plans')
-      .update({ name: 'Higher Website Plan', updated_at: new Date().toISOString() })
-      .eq('slug', 'higher');
-    console.log('Updated higher -> Higher Website Plan');
-    if (fullStackRow) {
-      await supabase.from('plans').delete().eq('slug', 'full-stack');
-    }
+    await supabase.from('plans').insert([newHigher]);
+    await supabase.from('plans').delete().eq('slug', 'full-stack');
+    console.log('Migrated full-stack to higher -> Premium Plan');
+  }
+
+  // Also clean up any lingering full-stack row if higher exists
+  if (higherRow && fullStackRow) {
+    await supabase.from('plans').delete().eq('slug', 'full-stack');
   }
 
   // Verify

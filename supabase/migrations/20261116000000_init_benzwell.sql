@@ -269,7 +269,7 @@ VALUES
 ),
 (
     'medium',
-    'Medium Website Plan',
+    'Standard Plan',
     14999,
     21999,
     '₹',
@@ -321,15 +321,15 @@ VALUES
         "B2B service providers requiring strong brand presence"
     ]'::jsonb,
     '[
-        {"question": "Why is this the recommended plan?", "answer": "The Medium plan strikes the perfect balance for growing businesses: a completely bespoke design aligned with your branding without the expense of a custom backend."},
-        {"question": "Does it have a demo button?", "answer": "No. Because each Medium website is custom-designed specifically to the client branding and layout requirements, every build is uniquely crafted."}
+        {"question": "Why is this the recommended plan?", "answer": "The Standard Plan strikes the perfect balance for growing businesses: a completely bespoke design aligned with your branding without the expense of a custom backend."},
+        {"question": "Does it have a demo button?", "answer": "No. Because each Standard Plan website is custom-designed specifically to the client branding and layout requirements, every build is uniquely crafted."}
     ]'::jsonb,
     true,
     2
 ),
 (
     'higher',
-    'Higher Website Plan',
+    'Premium Plan',
     19999,
     29999,
     '₹',
@@ -338,7 +338,7 @@ VALUES
     false,
     NULL,
     '[
-        "Everything included in Medium package where applicable",
+        "Everything included in Standard Plan where applicable",
         "Fully customized frontend tailored to your brand",
         "Full-stack backend development & APIs",
         "Custom secure admin dashboard",
@@ -355,7 +355,7 @@ VALUES
     'No paid minor-edit packages are required for normal content changes that the client can perform through their admin panel. The client controls supported website content through the admin dashboard. Major new features, structural redesigns and additional development work outside the agreed scope may be quoted separately.',
     'Not needed for content managed via admin panel',
     '[
-        "Everything in the Medium package",
+        "Everything in the Standard Plan",
         "Custom Admin Dashboard with secure login",
         "Live content management: products, services, photos, contact details",
         "Dedicated PostgreSQL backend database",
@@ -408,6 +408,6 @@ ON CONFLICT (slug) DO UPDATE SET
 
 -- Migration helper to ensure existing databases update plan names seamlessly without deleting any leads or pricing
 UPDATE public.plans SET name = 'Basic Plan' WHERE slug = 'basic';
-UPDATE public.plans SET name = 'Medium Website Plan' WHERE slug = 'medium';
-UPDATE public.plans SET slug = 'higher', name = 'Higher Website Plan' WHERE slug = 'full-stack' OR slug = 'higher';
+UPDATE public.plans SET name = 'Standard Plan' WHERE slug = 'medium';
+UPDATE public.plans SET slug = 'higher', name = 'Premium Plan' WHERE slug = 'full-stack' OR slug = 'higher';
 

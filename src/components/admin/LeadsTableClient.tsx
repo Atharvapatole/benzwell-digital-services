@@ -67,7 +67,15 @@ export default function LeadsTableClient({
         statusFilter === 'all' ? true : lead.status === statusFilter;
 
       const matchesPlan =
-        planFilter === 'all' ? true : lead.selected_plan.includes(planFilter);
+        planFilter === 'all'
+          ? true
+          : planFilter === 'Standard'
+          ? lead.selected_plan.includes('Standard') || lead.selected_plan.includes('Medium')
+          : planFilter === 'Premium'
+          ? lead.selected_plan.includes('Premium') ||
+            lead.selected_plan.includes('Higher') ||
+            lead.selected_plan.includes('Full Stack')
+          : lead.selected_plan.includes(planFilter);
 
       return matchesSearch && matchesStatus && matchesPlan;
     });
@@ -187,8 +195,8 @@ export default function LeadsTableClient({
             >
               <option value="all">All Plans</option>
               <option value="Basic">Basic Plan</option>
-              <option value="Medium">Medium Website Plan</option>
-              <option value="Higher">Higher Website Plan</option>
+              <option value="Standard">Standard Plan</option>
+              <option value="Premium">Premium Plan</option>
               <option value="Not Sure">Need Guidance</option>
             </select>
           </div>
