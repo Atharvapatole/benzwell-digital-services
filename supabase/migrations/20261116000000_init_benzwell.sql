@@ -177,9 +177,9 @@ VALUES
     '{
         "brand_name": "BenzWell",
         "tagline": "Professional Websites. Powerful Digital Experiences.",
-        "support_email": "contact@benzwell.in",
-        "whatsapp_number": "+91 9876543210",
-        "calling_number": "+91 9876543210",
+        "support_email": "info@benzwell.in",
+        "whatsapp_number": "+91 9923407176",
+        "calling_number": "+91 9923407176",
         "address": "Digital Solutions & Web Development, India",
         "production_url": "https://digital.benzwell.in"
     }'::jsonb,

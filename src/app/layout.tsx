@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import FloatingWhatsAppButton from '@/components/common/FloatingWhatsAppButton';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -61,7 +62,7 @@ export default function RootLayout({
     image: 'https://digital.benzwell.in/logo.png',
     '@id': 'https://digital.benzwell.in',
     url: 'https://digital.benzwell.in',
-    telephone: '+919876543210',
+    telephone: '+91 9923407176',
     priceRange: '₹7,999 - ₹19,999',
     address: {
       '@type': 'PostalAddress',
@@ -81,6 +82,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-slate-50 text-slate-900 font-sans antialiased selection:bg-brand-500 selection:text-white">
         {children}
+        <FloatingWhatsAppButton />
       </body>
     </html>
   );

@@ -64,7 +64,19 @@ export async function submitCustomerLead(data: LeadFormData) {
 
     // Optional email notification via Resend
     const resendApiKey = process.env.RESEND_API_KEY;
-    const notifyEmail = process.env.RESEND_NOTIFICATION_EMAIL || 'admin@benzwell.in';
+    let notifyEmail = process.env.RESEND_NOTIFICATION_EMAIL || process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'info@benzwell.in';
+    try {
+      const { data: settingRow } = await adminSupabase
+        .from('website_settings')
+        .select('value')
+        .eq('key', 'business_info')
+        .maybeSingle();
+      if (settingRow?.value?.support_email) {
+        notifyEmail = settingRow.value.support_email;
+      }
+    } catch {
+      // fallback to notifyEmail
+    }
     const fromEmail = process.env.RESEND_FROM_EMAIL || 'BenzWell Leads <onboarding@resend.dev>';
 
     if (resendApiKey) {

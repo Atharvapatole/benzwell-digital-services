@@ -24,8 +24,8 @@ export default async function TermsPage() {
           <section className="space-y-3 text-sm text-slate-600 leading-relaxed">
             <h2 className="text-lg font-bold text-slate-900">1. Website Development Scope</h2>
             <p>
-              BenzWell develops websites based on the package selected by the customer (Basic, Medium,
-              or Full Stack). Project deliverables and specifications are confirmed during the initial
+              BenzWell develops websites based on the package selected by the customer (Basic Plan, Standard Plan,
+              or Premium Plan). Project deliverables and specifications are confirmed during the initial
               discovery phase before development commences.
             </p>
           </section>

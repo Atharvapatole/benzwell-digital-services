@@ -26,7 +26,7 @@ interface EnquiryFormProps {
   whatsappNumber?: string;
 }
 
-export default function EnquiryForm({ initialPlan, whatsappNumber = '+919876543210' }: EnquiryFormProps) {
+export default function EnquiryForm({ initialPlan, whatsappNumber = '+91 9923407176' }: EnquiryFormProps) {
   const searchParams = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -141,7 +141,16 @@ export default function EnquiryForm({ initialPlan, whatsappNumber = '+9198765432
                 <div>
                   <h4 className="text-sm font-bold text-white">Direct WhatsApp Coordination</h4>
                   <p className="text-xs text-slate-400 leading-relaxed">
-                    Quick discussions and live milestone updates via WhatsApp.
+                    Quick discussions and live milestone updates via WhatsApp at{' '}
+                    <a
+                      href={`https://wa.me/${cleanWhatsappNumber}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-emerald-400 hover:underline font-semibold"
+                    >
+                      +91 9923407176
+                    </a>
+                    .
                   </p>
                 </div>
               </div>
@@ -151,9 +160,17 @@ export default function EnquiryForm({ initialPlan, whatsappNumber = '+9198765432
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white">Dedicated Call Discussion</h4>
+                  <h4 className="text-sm font-bold text-white">Dedicated Call & Email</h4>
                   <p className="text-xs text-slate-400 leading-relaxed">
-                    A direct telephone walkthrough of your business requirements and domain.
+                    Call:{' '}
+                    <a href="tel:+919923407176" className="text-blue-400 hover:underline font-semibold">
+                      +91 9923407176
+                    </a>
+                    {' • '}
+                    Email:{' '}
+                    <a href="mailto:info@benzwell.in" className="text-blue-400 hover:underline font-semibold">
+                      info@benzwell.in
+                    </a>
                   </p>
                 </div>
               </div>
@@ -289,7 +306,7 @@ export default function EnquiryForm({ initialPlan, whatsappNumber = '+9198765432
                       <MessageSquare className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
                       <input
                         type="tel"
-                        placeholder="e.g. 9876543210"
+                        placeholder="e.g. 9923407176"
                         {...register('whatsapp_number')}
                         className={`w-full pl-10 pr-4 py-2.5 rounded-xl border text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 transition-all ${
                           errors.whatsapp_number
@@ -313,7 +330,7 @@ export default function EnquiryForm({ initialPlan, whatsappNumber = '+9198765432
                       <Phone className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
                       <input
                         type="tel"
-                        placeholder="e.g. 9876543210"
+                        placeholder="e.g. 9923407176"
                         {...register('calling_number')}
                         className={`w-full pl-10 pr-4 py-2.5 rounded-xl border text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 transition-all ${
                           errors.calling_number

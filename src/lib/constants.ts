@@ -6,9 +6,9 @@ export const ADMIN_URL = 'https://digital.benzwell.in/admin';
 export const DEFAULT_BUSINESS_INFO: BusinessInfo = {
   brand_name: 'BenzWell',
   tagline: 'Professional Websites. Powerful Digital Experiences.',
-  support_email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'contact@benzwell.in',
-  whatsapp_number: process.env.NEXT_PUBLIC_CONTACT_WHATSAPP || '+919876543210',
-  calling_number: process.env.NEXT_PUBLIC_CONTACT_PHONE || '+919876543210',
+  support_email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'info@benzwell.in',
+  whatsapp_number: process.env.NEXT_PUBLIC_CONTACT_WHATSAPP || '+91 9923407176',
+  calling_number: process.env.NEXT_PUBLIC_CONTACT_PHONE || '+91 9923407176',
   address: 'Digital Solutions & Web Development, India',
   production_url: process.env.NEXT_PUBLIC_SITE_URL || PRODUCTION_URL,
 };

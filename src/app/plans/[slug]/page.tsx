@@ -19,6 +19,7 @@ import {
   HelpCircle,
   Building2,
   Edit3,
+  MessageSquare,
 } from 'lucide-react';
 
 interface Props {
@@ -167,6 +168,18 @@ export default async function PlanDetailPage({ params }: Props) {
                   </a>
                 )}
 
+                <a
+                  href={`https://wa.me/919923407176?text=${encodeURIComponent(
+                    `Hello BenzWell, I have an enquiry regarding the ${plan.name} (₹${plan.price.toLocaleString('en-IN')}).`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border border-emerald-300 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-semibold text-xs transition-colors"
+                >
+                  <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>Chat on WhatsApp</span>
+                </a>
+
                 <div className="pt-1">
                   <QrCodeCard planSlug={plan.slug} planName={plan.name} />
                 </div>
@@ -312,7 +325,7 @@ export default async function PlanDetailPage({ params }: Props) {
               Submit your enquiry in less than a minute. Our team will contact you to answer any
               questions and confirm your project timeline.
             </p>
-            <div>
+            <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
                 href={`/#contact?plan=${encodeURIComponent(
                   isBasic
@@ -326,6 +339,17 @@ export default async function PlanDetailPage({ params }: Props) {
                 <span>Submit Enquiry For {plan.name}</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
+              <a
+                href={`https://wa.me/919923407176?text=${encodeURIComponent(
+                  `Hello BenzWell, I want to discuss the ${plan.name} (₹${plan.price.toLocaleString('en-IN')}).`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-emerald-500/40 bg-emerald-950/60 hover:bg-emerald-900/80 text-emerald-300 font-bold text-sm transition-all shadow-md"
+              >
+                <MessageSquare className="w-4 h-4 text-emerald-400" />
+                <span>Chat on WhatsApp</span>
+              </a>
             </div>
           </div>
         </div>
