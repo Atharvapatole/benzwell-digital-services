@@ -25,7 +25,7 @@ export const DEFAULT_SERVICE_POLICIES: ServicePolicies = {
 export const DEFAULT_PLANS: Plan[] = [
   {
     slug: 'basic',
-    name: 'Basic Website',
+    name: 'Basic Plan',
     price: 7999,
     original_price: 11999,
     currency: '₹',
@@ -63,7 +63,7 @@ export const DEFAULT_PLANS: Plan[] = [
       'Domain included if registration price is ₹1,000 or less',
     ],
     not_included: [
-      'Self-service admin panel (available in Full Stack)',
+      'Self-service admin panel (available in Higher Plan)',
       'Database-driven dynamic backend or user logins',
       'E-commerce payment gateway checkout',
       'Major structural redesigns or complete layout overhauls',
@@ -84,7 +84,7 @@ export const DEFAULT_PLANS: Plan[] = [
     ],
     faqs: [
       {
-        question: 'Which pages are included in the 5-page Basic Website?',
+        question: 'Which pages are included in the 5-page Basic Plan?',
         answer:
           'You get Home, About Us, Products/Services, Contact, and 1 additional custom page tailored to your specific offering.',
       },
@@ -96,7 +96,7 @@ export const DEFAULT_PLANS: Plan[] = [
       {
         question: 'Can I test drive a demo?',
         answer:
-          'Yes! The Basic Website package features a live demo so you can preview the clean, responsive layout before getting started.',
+          'Yes! The Basic Plan package features a live demo so you can preview the clean, responsive layout before getting started.',
       },
     ],
     is_active: true,
@@ -104,7 +104,7 @@ export const DEFAULT_PLANS: Plan[] = [
   },
   {
     slug: 'medium',
-    name: 'Medium Website',
+    name: 'Medium Website Plan',
     price: 14999,
     original_price: 21999,
     currency: '₹',
@@ -114,7 +114,7 @@ export const DEFAULT_PLANS: Plan[] = [
     recommended: true,
     demo_url: null, // As specified: Do not display a demo button for this plan
     features: [
-      'Everything included in Basic Website',
+      'Everything included in Basic Plan',
       'Customized website design',
       'Customized layouts and page structures',
       'Premium UI/UX',
@@ -132,7 +132,7 @@ export const DEFAULT_PLANS: Plan[] = [
       'Same editing terms as the Basic package: Three minor edits are included free (adding/deleting products, changing text, replacing images, updating contact details). Major layout redesigns are not included.',
     additional_edits_cost: '₹1,000 for five additional minor edits',
     included: [
-      'Everything included in the Basic Website package',
+      'Everything included in the Basic Plan package',
       'Bespoke visual design matched to your corporate identity and color palette',
       'Advanced presentation sections for products, case studies, or services',
       'Interactive custom contact and quote inquiry forms',
@@ -142,7 +142,7 @@ export const DEFAULT_PLANS: Plan[] = [
       'Domain included if registration price is ₹1,000 or less',
     ],
     not_included: [
-      'Admin content management dashboard (available in Full Stack)',
+      'Admin content management dashboard (available in Higher Plan)',
       'Backend database integration for self-service edits',
       'Full custom backend API architecture',
     ],
@@ -162,22 +162,22 @@ export const DEFAULT_PLANS: Plan[] = [
     ],
     faqs: [
       {
-        question: 'Why is Medium the recommended package?',
+        question: 'Why is Medium Website Plan the recommended package?',
         answer:
-          'Medium provides custom design, bespoke sections, and brand-tailored styling that gives your business an elevated corporate appearance without the overhead of maintaining a database backend.',
+          'Medium Website Plan provides custom design, bespoke sections, and brand-tailored styling that gives your business an elevated corporate appearance without the overhead of maintaining a database backend.',
       },
       {
-        question: 'Is there a demo for the Medium package?',
+        question: 'Is there a demo for the Medium Website Plan?',
         answer:
-          'No demo button is shown for the Medium package because every Medium website is uniquely designed from scratch according to the specific branding and layouts of each client.',
+          'No demo button is shown for the Medium Website Plan because every Medium website is uniquely designed from scratch according to the specific branding and layouts of each client.',
       },
     ],
     is_active: true,
     sort_order: 2,
   },
   {
-    slug: 'full-stack',
-    name: 'Higher Website – Full Stack',
+    slug: 'higher',
+    name: 'Higher Website Plan',
     price: 19999,
     original_price: 29999,
     currency: '₹',
@@ -187,7 +187,7 @@ export const DEFAULT_PLANS: Plan[] = [
     recommended: false,
     demo_url: null, // As specified: Do not display a demo button for this plan
     features: [
-      'Everything included in the Medium package where applicable',
+      'Everything included in the Medium Website Plan where applicable',
       'Fully customized frontend',
       'Full-stack backend development',
       'Custom admin dashboard',
@@ -205,7 +205,7 @@ export const DEFAULT_PLANS: Plan[] = [
       'No paid minor-edit packages are required for normal content changes that the client can perform through their admin panel. The client controls the supported website content through the admin dashboard. Major new features, structural redesigns and additional development work outside the agreed scope may be quoted separately.',
     additional_edits_cost: 'Self-service editing via your admin dashboard (zero editing fees)',
     included: [
-      'Everything in the Medium package where applicable',
+      'Everything in the Medium Website Plan where applicable',
       'Custom secure Admin Dashboard with authenticated login',
       'Full-stack backend with PostgreSQL database integration',
       'Self-service management: add, edit, delete products & update business info',
@@ -235,7 +235,7 @@ export const DEFAULT_PLANS: Plan[] = [
     ],
     faqs: [
       {
-        question: 'Do I need to pay for minor edits with the Full Stack package?',
+        question: 'Do I need to pay for minor edits with the Higher Website Plan?',
         answer:
           'No! You get your own secure admin panel. You can add, edit, or delete products, change phone numbers, update text, and upload images yourself anytime without paying for minor edits.',
       },
@@ -251,9 +251,9 @@ export const DEFAULT_PLANS: Plan[] = [
 ];
 
 export const PLAN_OPTIONS = [
-  { value: 'Basic Website – ₹7,999', label: 'Basic Website – ₹7,999' },
-  { value: 'Medium Website – ₹14,999', label: 'Medium Website – ₹14,999' },
-  { value: 'Higher Website – ₹19,999', label: 'Higher Website – ₹19,999' },
+  { value: 'Basic Plan – ₹7,999', label: 'Basic Plan – ₹7,999' },
+  { value: 'Medium Website Plan – ₹14,999', label: 'Medium Website Plan – ₹14,999' },
+  { value: 'Higher Website Plan – ₹19,999', label: 'Higher Website Plan – ₹19,999' },
   { value: 'Not Sure – Need Guidance', label: 'Not Sure – Need Guidance' },
 ];
 

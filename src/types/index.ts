@@ -29,7 +29,7 @@ export interface PlanFaq {
 }
 
 export interface Plan {
-  slug: string; // 'basic' | 'medium' | 'full-stack'
+  slug: string; // 'basic' | 'medium' | 'higher'
   name: string;
   price: number;
   original_price?: number;

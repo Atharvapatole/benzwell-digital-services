@@ -1,8 +1,9 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { createClient } from '@/lib/supabase/client';
+import { adminSignOut } from '@/actions/auth';
 import {
   LayoutDashboard,
   Users,
@@ -22,11 +23,15 @@ export default function AdminNav({ userEmail }: AdminNavProps) {
   const pathname = usePathname();
   const router = useRouter();
 
+  const [isSigningOut, setIsSigningOut] = useState(false);
+
   const handleSignOut = async () => {
-    const supabase = createClient();
-    await supabase.auth.signOut();
-    router.push('/admin/login');
-    router.refresh();
+    setIsSigningOut(true);
+    try {
+      await adminSignOut();
+    } catch {
+      window.location.href = '/admin/login';
+    }
   };
 
   const navLinks = [
@@ -101,11 +106,12 @@ export default function AdminNav({ userEmail }: AdminNavProps) {
 
             <button
               onClick={handleSignOut}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-rose-950/80 hover:text-rose-300 border border-slate-700 text-xs font-semibold text-slate-300 transition-colors"
+              disabled={isSigningOut}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-rose-950/80 hover:text-rose-300 border border-slate-700 text-xs font-semibold text-slate-300 transition-colors disabled:opacity-50"
               title="Sign Out"
             >
               <LogOut className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Logout</span>
+              <span className="hidden sm:inline">{isSigningOut ? 'Signing out...' : 'Logout'}</span>
             </button>
           </div>
         </div>

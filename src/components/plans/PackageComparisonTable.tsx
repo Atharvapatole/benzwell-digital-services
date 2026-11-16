@@ -108,7 +108,7 @@ export default function PackageComparisonTable({ currentSlug }: PackageCompariso
                   currentSlug === 'basic' ? 'bg-brand-50/80 text-brand-900' : ''
                 }`}
               >
-                <div>Basic Website</div>
+                <div>Basic Plan</div>
                 <div className="text-[11px] font-normal text-slate-500 mt-0.5">₹7,999</div>
               </th>
               <th
@@ -117,17 +117,17 @@ export default function PackageComparisonTable({ currentSlug }: PackageCompariso
                 }`}
               >
                 <div className="flex items-center justify-center gap-1">
-                  <span>Medium Website</span>
+                  <span>Medium Website Plan</span>
                   <Sparkles className="w-3 h-3 text-brand-600" />
                 </div>
                 <div className="text-[11px] font-normal text-slate-500 mt-0.5">₹14,999</div>
               </th>
               <th
                 className={`p-4 sm:p-5 text-center w-1/5 ${
-                  currentSlug === 'full-stack' ? 'bg-brand-50/80 text-brand-900' : ''
+                  currentSlug === 'higher' || currentSlug === 'full-stack' ? 'bg-brand-50/80 text-brand-900' : ''
                 }`}
               >
-                <div>Full Stack Website</div>
+                <div>Higher Website Plan</div>
                 <div className="text-[11px] font-normal text-slate-500 mt-0.5">₹19,999</div>
               </th>
             </tr>
@@ -178,10 +178,10 @@ export default function PackageComparisonTable({ currentSlug }: PackageCompariso
                   )}
                 </td>
 
-                {/* Full Stack Column */}
+                {/* Higher Website Plan Column */}
                 <td
                   className={`p-4 sm:p-5 text-center text-xs ${
-                    currentSlug === 'full-stack' ? 'bg-brand-50/30 font-medium' : ''
+                    currentSlug === 'higher' || currentSlug === 'full-stack' ? 'bg-brand-50/30 font-medium' : ''
                   }`}
                 >
                   {typeof row.fullStack === 'boolean' ? (

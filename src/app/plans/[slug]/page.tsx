@@ -55,6 +55,7 @@ export async function generateStaticParams() {
   return [
     { slug: 'basic' },
     { slug: 'medium' },
+    { slug: 'higher' },
     { slug: 'full-stack' },
   ];
 }
@@ -143,10 +144,10 @@ export default async function PlanDetailPage({ params }: Props) {
                 <Link
                   href={`/#contact?plan=${encodeURIComponent(
                     isBasic
-                      ? 'Basic Website – ₹7,999'
+                      ? 'Basic Plan – ₹7,999'
                       : isMedium
-                      ? 'Medium Website – ₹14,999'
-                      : 'Higher Website – ₹19,999'
+                      ? 'Medium Website Plan – ₹14,999'
+                      : 'Higher Website Plan – ₹19,999'
                   )}`}
                   className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-md transition-colors"
                 >
@@ -315,10 +316,10 @@ export default async function PlanDetailPage({ params }: Props) {
               <Link
                 href={`/#contact?plan=${encodeURIComponent(
                   isBasic
-                    ? 'Basic Website – ₹7,999'
+                    ? 'Basic Plan – ₹7,999'
                     : isMedium
-                    ? 'Medium Website – ₹14,999'
-                    : 'Higher Website – ₹19,999'
+                    ? 'Medium Website Plan – ₹14,999'
+                    : 'Higher Website Plan – ₹19,999'
                 )}`}
                 className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-lg shadow-brand-500/25 transition-all"
               >

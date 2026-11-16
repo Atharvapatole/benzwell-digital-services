@@ -34,27 +34,45 @@ export async function updateSession(request: NextRequest) {
     },
   });
 
+  const pathname = request.nextUrl.pathname;
+  const isAuthRoute = pathname === '/admin/login';
+  const isAdminRoute = pathname.startsWith('/admin');
+
+  // Only run auth checks on admin routes to prevent unnecessary overhead on public pages
+  if (!isAdminRoute) {
+    return response;
+  }
+
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const isAuthRoute = request.nextUrl.pathname === '/admin/login';
-  const isAdminRoute = request.nextUrl.pathname.startsWith('/admin');
+  // Helper to preserve cookies across Next.js redirects
+  const createRedirectResponse = (targetUrl: URL) => {
+    const redirectResponse = NextResponse.redirect(targetUrl);
+    response.cookies.getAll().forEach((cookie) => {
+      redirectResponse.cookies.set(cookie.name, cookie.value, cookie);
+    });
+    return redirectResponse;
+  };
 
-  // Protect /admin routes from unauthenticated users
-  if (isAdminRoute && !isAuthRoute && !user) {
-    const url = request.nextUrl.clone();
-    url.pathname = '/admin/login';
-    url.searchParams.set('redirect', request.nextUrl.pathname);
-    return NextResponse.redirect(url);
+  // 1. If unauthenticated user tries to access /admin or any /admin/* subroute (except /admin/login)
+  if (!isAuthRoute && !user) {
+    const redirectUrl = request.nextUrl.clone();
+    redirectUrl.pathname = '/admin/login';
+    if (pathname !== '/admin') {
+      redirectUrl.searchParams.set('redirect', pathname);
+    }
+    return createRedirectResponse(redirectUrl);
   }
 
-  // Redirect authenticated users away from /admin/login to /admin
+  // 2. If authenticated user tries to access /admin/login, redirect to /admin or requested redirect
   if (isAuthRoute && user) {
-    const url = request.nextUrl.clone();
-    url.pathname = '/admin';
-    url.searchParams.delete('redirect');
-    return NextResponse.redirect(url);
+    const redirectUrl = request.nextUrl.clone();
+    const queryRedirect = request.nextUrl.searchParams.get('redirect');
+    redirectUrl.pathname = queryRedirect && queryRedirect.startsWith('/admin') ? queryRedirect : '/admin';
+    redirectUrl.searchParams.delete('redirect');
+    return createRedirectResponse(redirectUrl);
   }
 
   return response;

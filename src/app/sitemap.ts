@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/plans/basic',
     '/plans/medium',
+    '/plans/higher',
     '/plans/full-stack',
     '/privacy',
     '/terms',

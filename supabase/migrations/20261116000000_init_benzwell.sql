@@ -206,7 +206,7 @@ INSERT INTO public.plans (
 VALUES
 (
     'basic',
-    'Basic Website',
+    'Basic Plan',
     7999,
     11999,
     '₹',
@@ -269,7 +269,7 @@ VALUES
 ),
 (
     'medium',
-    'Medium Website',
+    'Medium Website Plan',
     14999,
     21999,
     '₹',
@@ -328,12 +328,12 @@ VALUES
     2
 ),
 (
-    'full-stack',
-    'Higher Website – Full Stack',
+    'higher',
+    'Higher Website Plan',
     19999,
     29999,
     '₹',
-    'Complete Custom & Dashboard',
+    'Custom & Admin Dashboard',
     'A complete custom business website with backend functionality and your own admin dashboard.',
     false,
     NULL,
@@ -405,3 +405,9 @@ ON CONFLICT (slug) DO UPDATE SET
     recommended_businesses = EXCLUDED.recommended_businesses,
     faqs = EXCLUDED.faqs,
     sort_order = EXCLUDED.sort_order;
+
+-- Migration helper to ensure existing databases update plan names seamlessly without deleting any leads or pricing
+UPDATE public.plans SET name = 'Basic Plan' WHERE slug = 'basic';
+UPDATE public.plans SET name = 'Medium Website Plan' WHERE slug = 'medium';
+UPDATE public.plans SET slug = 'higher', name = 'Higher Website Plan' WHERE slug = 'full-stack' OR slug = 'higher';
+

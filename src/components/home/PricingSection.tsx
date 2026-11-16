@@ -31,7 +31,7 @@ export default function PricingSection({ plans }: PricingSectionProps) {
           {plans.map((plan) => {
             const isMedium = plan.slug === 'medium';
             const isBasic = plan.slug === 'basic';
-            const isFullStack = plan.slug === 'full-stack';
+            const isHigher = plan.slug === 'higher' || plan.slug === 'full-stack';
 
             return (
               <div
@@ -112,10 +112,10 @@ export default function PricingSection({ plans }: PricingSectionProps) {
                     <Link
                       href={`/#contact?plan=${encodeURIComponent(
                         plan.slug === 'basic'
-                          ? 'Basic Website – ₹7,999'
+                          ? 'Basic Plan – ₹7,999'
                           : plan.slug === 'medium'
-                          ? 'Medium Website – ₹14,999'
-                          : 'Higher Website – ₹19,999'
+                          ? 'Medium Website Plan – ₹14,999'
+                          : 'Higher Website Plan – ₹19,999'
                       )}`}
                       className={`w-full inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl text-sm font-semibold transition-all duration-200 shadow-sm active:scale-95 ${
                         isMedium
@@ -125,10 +125,10 @@ export default function PricingSection({ plans }: PricingSectionProps) {
                     >
                       <span>
                         {isBasic
-                          ? 'Get Basic Website'
+                          ? 'Get Basic Plan'
                           : isMedium
-                          ? 'Get Medium Website'
-                          : 'Get Full Stack Website'}
+                          ? 'Get Medium Website Plan'
+                          : 'Get Higher Website Plan'}
                       </span>
                       <ArrowRight className="w-4 h-4" />
                     </Link>

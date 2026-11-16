@@ -48,7 +48,7 @@ export default function EnquiryForm({ initialPlan, whatsappNumber = '+9198765432
       email: '',
       whatsapp_number: '',
       calling_number: '',
-      selected_plan: (queryPlan || initialPlan || 'Basic Website – ₹7,999') as LeadFormData['selected_plan'],
+      selected_plan: (queryPlan || initialPlan || 'Basic Plan – ₹7,999') as LeadFormData['selected_plan'],
       budget: '₹5,000 – ₹8,000',
       message: '',
       consent: true,
@@ -58,7 +58,14 @@ export default function EnquiryForm({ initialPlan, whatsappNumber = '+9198765432
   useEffect(() => {
     if (queryPlan) {
       // Find matching option
-      const found = PLAN_OPTIONS.find((p) => p.value === queryPlan);
+      const found = PLAN_OPTIONS.find(
+        (p) =>
+          p.value === queryPlan ||
+          (queryPlan.toLowerCase().includes('basic') && p.value.includes('Basic')) ||
+          (queryPlan.toLowerCase().includes('medium') && p.value.includes('Medium')) ||
+          ((queryPlan.toLowerCase().includes('higher') || queryPlan.toLowerCase().includes('full stack')) &&
+            p.value.includes('Higher'))
+      );
       if (found) {
         setValue('selected_plan', found.value as LeadFormData['selected_plan']);
       }

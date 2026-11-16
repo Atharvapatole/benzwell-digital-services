@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "admin:status": "node scripts/manage-admin.js status",
+    "admin:set-password": "node scripts/manage-admin.js set-password",
+    "admin:reset-link": "node scripts/manage-admin.js reset-link",
+    "plans:sync": "node scripts/sync-plans.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

@@ -40,21 +40,22 @@ export async function getAllPlansForAdmin(): Promise<Plan[]> {
 }
 
 export async function getPlanBySlug(slug: string): Promise<Plan | null> {
+  const normalizedSlug = slug === 'full-stack' ? 'higher' : slug;
   try {
     const supabase = createAdminSupabaseClient();
     const { data, error } = await supabase
       .from('plans')
       .select('*')
-      .eq('slug', slug)
+      .eq('slug', normalizedSlug)
       .maybeSingle();
 
     if (error || !data) {
-      return DEFAULT_PLANS.find((p) => p.slug === slug) || null;
+      return DEFAULT_PLANS.find((p) => p.slug === normalizedSlug) || null;
     }
 
     return data as Plan;
   } catch {
-    return DEFAULT_PLANS.find((p) => p.slug === slug) || null;
+    return DEFAULT_PLANS.find((p) => p.slug === normalizedSlug) || null;
   }
 }
 

@@ -25,6 +25,9 @@ export const leadFormSchema = z.object({
     }),
   selected_plan: z.enum(
     [
+      'Basic Plan – ₹7,999',
+      'Medium Website Plan – ₹14,999',
+      'Higher Website Plan – ₹19,999',
       'Basic Website – ₹7,999',
       'Medium Website – ₹14,999',
       'Higher Website – ₹19,999',

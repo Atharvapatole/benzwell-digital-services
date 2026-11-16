@@ -185,10 +185,10 @@ export default function LeadsTableClient({
               onChange={(e) => setPlanFilter(e.target.value)}
               className="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm bg-white focus:outline-none focus:border-brand-600"
             >
-              <option value="all">All Packages</option>
-              <option value="Basic">Basic Website</option>
-              <option value="Medium">Medium Website</option>
-              <option value="Higher">Full Stack Website</option>
+              <option value="all">All Plans</option>
+              <option value="Basic">Basic Plan</option>
+              <option value="Medium">Medium Website Plan</option>
+              <option value="Higher">Higher Website Plan</option>
               <option value="Not Sure">Need Guidance</option>
             </select>
           </div>
