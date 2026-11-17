@@ -110,13 +110,7 @@ export default function PricingSection({ plans }: PricingSectionProps) {
                   <div className="space-y-3 pt-2">
                     {/* Primary Plan CTA */}
                     <Link
-                      href={`/#contact?plan=${encodeURIComponent(
-                        plan.slug === 'basic'
-                          ? 'Basic Plan – ₹7,999'
-                          : plan.slug === 'medium'
-                          ? 'Standard Plan – ₹14,999'
-                          : 'Premium Plan – ₹19,999'
-                      )}`}
+                      href={`/contact?plan=${plan.slug}`}
                       className={`w-full inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl text-sm font-semibold transition-all duration-200 shadow-sm active:scale-95 ${
                         isMedium
                           ? 'bg-brand-600 hover:bg-brand-700 text-white shadow-brand-500/25 shadow-lg'

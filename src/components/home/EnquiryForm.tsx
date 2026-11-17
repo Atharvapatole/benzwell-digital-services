@@ -26,6 +26,32 @@ interface EnquiryFormProps {
   whatsappNumber?: string;
 }
 
+function getInitialPlan(param?: string | null, fallback?: string): LeadFormData['selected_plan'] {
+  const target = (param || fallback || '').toLowerCase().trim();
+  if (target === 'basic' || target.includes('basic')) {
+    return 'Basic Plan – ₹7,999';
+  }
+  if (target === 'medium' || target === 'standard' || target.includes('medium') || target.includes('standard')) {
+    return 'Standard Plan – ₹14,999';
+  }
+  if (
+    target === 'higher' ||
+    target === 'premium' ||
+    target === 'full-stack' ||
+    target.includes('higher') ||
+    target.includes('premium')
+  ) {
+    return 'Premium Plan – ₹19,999';
+  }
+  const match = PLAN_OPTIONS.find(
+    (p) => p.value.toLowerCase() === target || p.label.toLowerCase() === target
+  );
+  if (match) {
+    return match.value as LeadFormData['selected_plan'];
+  }
+  return 'Basic Plan – ₹7,999';
+}
+
 export default function EnquiryForm({ initialPlan, whatsappNumber = '+91 9923407176' }: EnquiryFormProps) {
   const searchParams = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -48,7 +74,7 @@ export default function EnquiryForm({ initialPlan, whatsappNumber = '+91 9923407
       email: '',
       whatsapp_number: '',
       calling_number: '',
-      selected_plan: (queryPlan || initialPlan || 'Basic Plan – ₹7,999') as LeadFormData['selected_plan'],
+      selected_plan: getInitialPlan(queryPlan, initialPlan),
       budget: '₹5,000 – ₹8,000',
       message: '',
       consent: true,
@@ -57,23 +83,9 @@ export default function EnquiryForm({ initialPlan, whatsappNumber = '+91 9923407
 
   useEffect(() => {
     if (queryPlan) {
-      // Find matching option
-      const found = PLAN_OPTIONS.find(
-        (p) =>
-          p.value === queryPlan ||
-          (queryPlan.toLowerCase().includes('basic') && p.value.includes('Basic')) ||
-          ((queryPlan.toLowerCase().includes('standard') || queryPlan.toLowerCase().includes('medium')) &&
-            p.value.includes('Standard')) ||
-          ((queryPlan.toLowerCase().includes('premium') ||
-            queryPlan.toLowerCase().includes('higher') ||
-            queryPlan.toLowerCase().includes('full stack')) &&
-            p.value.includes('Premium'))
-      );
-      if (found) {
-        setValue('selected_plan', found.value as LeadFormData['selected_plan']);
-      }
+      setValue('selected_plan', getInitialPlan(queryPlan, initialPlan));
     }
-  }, [queryPlan, setValue]);
+  }, [queryPlan, initialPlan, setValue]);
 
   const onSubmit = async (data: LeadFormData) => {
     setIsSubmitting(true);
@@ -187,12 +199,14 @@ export default function EnquiryForm({ initialPlan, whatsappNumber = '+91 9923407
                 </div>
 
                 <div className="space-y-2">
-                  <h3 className="text-2xl font-extrabold text-slate-900">
-                    Thank You, {submittedLeadName}!
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                    Your enquiry has been submitted successfully!
                   </h3>
+                  <p className="text-base font-semibold text-emerald-700">
+                    Thank You, {submittedLeadName}!
+                  </p>
                   <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                    Your enquiry has been received securely. Our team will review your requirements
-                    and contact you promptly to discuss the next steps.
+                    Our team at BenzWell has received your requirements and will contact you promptly to discuss the next steps and get your website started.
                   </p>
                 </div>
 

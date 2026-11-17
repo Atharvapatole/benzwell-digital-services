@@ -55,7 +55,7 @@ export default function Footer({ businessInfo }: FooterProps) {
                 </Link>
               </li>
               <li>
-                <Link href="/#contact" className="hover:text-white transition-colors">
+                <Link href="/contact" className="hover:text-white transition-colors">
                   Contact Us
                 </Link>
               </li>

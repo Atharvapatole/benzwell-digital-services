@@ -74,7 +74,7 @@ export default function Navbar() {
               FAQs
             </Link>
             <Link
-              href="/#contact"
+              href="/contact"
               className="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors"
             >
               Contact
@@ -84,7 +84,7 @@ export default function Navbar() {
           {/* Right Action */}
           <div className="hidden md:flex items-center gap-4">
             <Link
-              href="/#contact"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-slate-900 text-white text-sm font-semibold hover:bg-brand-600 transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-brand-500/20 active:scale-95"
             >
               <span>Get Started</span>
@@ -143,7 +143,7 @@ export default function Navbar() {
               FAQs
             </Link>
             <Link
-              href="/#contact"
+              href="/contact"
               onClick={() => setIsOpen(false)}
               className="px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600"
             >
@@ -151,7 +151,7 @@ export default function Navbar() {
             </Link>
             <div className="pt-2">
               <Link
-                href="/#contact"
+                href="/contact"
                 onClick={() => setIsOpen(false)}
                 className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-slate-900 text-white font-semibold text-center hover:bg-brand-600 transition-colors"
               >

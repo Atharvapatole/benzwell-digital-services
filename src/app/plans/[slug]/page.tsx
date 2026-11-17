@@ -143,13 +143,7 @@ export default async function PlanDetailPage({ params }: Props) {
                 </div>
 
                 <Link
-                  href={`/#contact?plan=${encodeURIComponent(
-                    isBasic
-                      ? 'Basic Plan – ₹7,999'
-                      : isMedium
-                      ? 'Standard Plan – ₹14,999'
-                      : 'Premium Plan – ₹19,999'
-                  )}`}
+                  href={`/contact?plan=${plan.slug}`}
                   className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-md transition-colors"
                 >
                   <span>Select This Plan</span>
@@ -327,13 +321,7 @@ export default async function PlanDetailPage({ params }: Props) {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
-                href={`/#contact?plan=${encodeURIComponent(
-                  isBasic
-                    ? 'Basic Plan – ₹7,999'
-                    : isMedium
-                    ? 'Standard Plan – ₹14,999'
-                    : 'Premium Plan – ₹19,999'
-                )}`}
+                href={`/contact?plan=${plan.slug}`}
                 className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-lg shadow-brand-500/25 transition-all"
               >
                 <span>Submit Enquiry For {plan.name}</span>

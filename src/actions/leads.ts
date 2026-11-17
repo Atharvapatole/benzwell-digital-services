@@ -62,6 +62,10 @@ export async function submitCustomerLead(data: LeadFormData) {
       };
     }
 
+    // Instantly revalidate admin leads caches
+    revalidatePath('/admin');
+    revalidatePath('/admin/leads');
+
     // Optional email notification via Resend
     const resendApiKey = process.env.RESEND_API_KEY;
     let notifyEmail = process.env.RESEND_NOTIFICATION_EMAIL || process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'info@benzwell.in';
