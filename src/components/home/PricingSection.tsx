@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Check, ExternalLink, ArrowRight, Sparkles, Shield, Info } from 'lucide-react';
+import { Check, ExternalLink, ArrowRight, Sparkles, Shield, Info, Mail } from 'lucide-react';
 import { Plan } from '@/types';
 import QrCodeCard from '@/components/common/QrCodeCard';
 
@@ -78,15 +78,38 @@ export default function PricingSection({ plans }: PricingSectionProps) {
                       </span>
                       <span className="text-xs font-medium text-slate-500">/ 1st year included</span>
                     </div>
+
+                    {/* Prominent Standard Plan Badge */}
+                    {isMedium && (
+                      <div className="mt-3 p-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-[11px] font-extrabold tracking-wider uppercase shadow-md flex items-center justify-center gap-2">
+                        <Sparkles className="w-3.5 h-3.5 text-emerald-200" />
+                        <span>5 FREE MINOR EDITS INCLUDED</span>
+                      </div>
+                    )}
+
+                    {/* Professional Business Email Mailbox Callout */}
+                    <div className="mt-2.5 flex items-center gap-2.5 p-2.5 rounded-xl bg-blue-50/90 border border-blue-200/80 text-blue-950 text-xs">
+                      <div className="w-7 h-7 rounded-lg bg-blue-600 text-white flex items-center justify-center flex-shrink-0 shadow-xs">
+                        <Mail className="w-3.5 h-3.5" />
+                      </div>
+                      <div className="leading-tight">
+                        <span className="font-bold text-slate-900 block text-[11px]">
+                          1 Professional Business Email Mailbox
+                        </span>
+                        <span className="text-[10px] text-blue-700 font-medium">
+                          Included for 1 Year (Domain-associated)
+                        </span>
+                      </div>
+                    </div>
                   </div>
 
                   {/* Features List */}
-                  <div className="py-6 flex-1 space-y-3">
+                  <div className="py-5 flex-1 space-y-3">
                     <div className="text-xs font-bold uppercase tracking-wider text-slate-900">
                       Package Features:
                     </div>
                     <ul className="space-y-2.5">
-                      {plan.features.slice(0, 10).map((feature, idx) => (
+                      {plan.features.slice(0, 12).map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-2.5 text-xs text-slate-700">
                           <Check className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
                           <span className="leading-snug">{feature}</span>

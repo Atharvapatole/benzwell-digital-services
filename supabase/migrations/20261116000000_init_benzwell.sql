@@ -221,6 +221,7 @@ VALUES
         "Products / Services page",
         "Contact page",
         "One additional custom page",
+        "1 Professional Business Email Mailbox (1 Year Included)",
         "Product display section",
         "Business contact information",
         "WhatsApp contact integration",
@@ -234,6 +235,7 @@ VALUES
     '₹1,000 for five additional minor edits',
     '[
         "5 static/structured responsive pages",
+        "1 Professional Business Email Mailbox associated with your domain (1-Year Included)",
         "Home, About Us, Products/Services, Contact, 1 extra page",
         "Direct WhatsApp chat click-to-talk button",
         "Google Maps embed and direct calling links",
@@ -280,6 +282,8 @@ VALUES
     '[
         "Everything included in Basic Website",
         "Customized website design tailored to your brand",
+        "1 Professional Business Email Mailbox (1 Year Included)",
+        "Five free minor content edits included",
         "Customized layouts and page structures",
         "Premium UI/UX with smooth transitions",
         "Multiple customized sections",
@@ -289,13 +293,14 @@ VALUES
         "WhatsApp integration & direct lead triggers",
         "Responsive desktop, tablet and mobile layouts",
         "SEO-friendly structure & semantic markup",
-        "One-year high-speed hosting included",
-        "Three free minor content edits included"
+        "One-year high-speed hosting included"
     ]'::jsonb,
-    'Three minor edits are included free. Examples: Adding products, deleting products, changing text, replacing images, updating contact details. Major structural rebuilds are not included.',
+    'Five free minor edits are included free. Examples: Adding products, deleting products, changing text, replacing images, updating contact details. Major structural rebuilds are not included.',
     '₹1,000 for five additional minor edits',
     '[
         "Everything in the Basic package",
+        "5 Free Minor Content Edits included free of charge",
+        "1 Professional Business Email Mailbox associated with your domain (1-Year Included)",
         "Tailored custom design matching your exact business identity",
         "Advanced service & product showcase galleries",
         "Interactive lead capture forms",
@@ -339,6 +344,7 @@ VALUES
     NULL,
     '[
         "Everything included in Standard Plan where applicable",
+        "1 Professional Business Email Mailbox (1 Year Included)",
         "Fully customized frontend tailored to your brand",
         "Full-stack backend development & APIs",
         "Custom secure admin dashboard",
@@ -356,6 +362,7 @@ VALUES
     'Not needed for content managed via admin panel',
     '[
         "Everything in the Standard Plan",
+        "1 Professional Business Email Mailbox associated with your domain (1-Year Included)",
         "Custom Admin Dashboard with secure login",
         "Live content management: products, services, photos, contact details",
         "Dedicated PostgreSQL backend database",

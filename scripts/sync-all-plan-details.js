@@ -30,11 +30,8 @@ const plans = [
     demo_url: 'https://demo-basic.benzwell.in',
     features: [
       'Simple professional 5-page website',
-      'Home page',
-      'About Us page',
-      'Products / Services page',
-      'Contact page',
-      'One additional page',
+      'Home, About, Products/Services, Contact + 1 Custom page',
+      '1 Professional Business Email Mailbox (1 Year Included)',
       'Product display section',
       'Business contact information',
       'WhatsApp contact integration',
@@ -49,6 +46,7 @@ const plans = [
     additional_edits_cost: '₹1,000 for five additional minor edits',
     included: [
       'Up to 5 clean, responsive pages (Home, About, Products/Services, Contact + 1 Custom)',
+      '1 Professional Business Email Mailbox associated with your domain (1-Year Included)',
       'Product & service catalog display section',
       'One-click WhatsApp chat integration',
       'Direct calling buttons and Google Maps embed',
@@ -84,6 +82,11 @@ const plans = [
           'You get Home, About Us, Products/Services, Contact, and 1 additional custom page tailored to your specific offering.',
       },
       {
+        question: 'Is a professional business email mailbox included in the Basic Plan?',
+        answer:
+          'Yes! The Basic Plan includes 1 actual professional business email mailbox associated with your domain (e.g., info@yourdomain.com or contact@yourdomain.com) for 1 full year at zero extra cost. Renewal after year 1 is charged separately at standard email provider rates, and additional mailboxes can be purchased if needed.',
+      },
+      {
         question: 'What qualifies as a free minor edit?',
         answer:
           'Minor edits include adding or removing a product, changing text, swapping out an image, or updating your phone number/address. Major structural redesigns are not minor edits.',
@@ -110,30 +113,31 @@ const plans = [
     demo_url: null,
     features: [
       'Everything included in Basic Plan',
-      'Customized website design',
+      'Customized website design & branding',
+      '1 Professional Business Email Mailbox (1 Year Included)',
+      'Five free minor content edits included',
       'Customized layouts and page structures',
-      'Premium UI/UX',
+      'Premium UI/UX presentation',
       'Multiple customized sections',
       'Advanced product and service presentation',
-      'Custom business branding',
       'Enhanced contact forms',
       'WhatsApp integration',
       'Responsive desktop, tablet and mobile layouts',
       'SEO-friendly structure',
-      'One-year hosting',
-      'Three free minor edits',
+      'Website hosting included for one year',
     ],
     editing_policy:
-      'Same editing terms as the Basic package: Three minor edits are included free (adding/deleting products, changing text, replacing images, updating contact details). Major layout redesigns are not included.',
+      'Five free minor content edits are included. Examples: Adding products, deleting products, changing text, replacing images, updating contact details. Major changes are not included: changing the website’s overall layout, changing the entire design structure, adding major new functionality, or rebuilding pages.',
     additional_edits_cost: '₹1,000 for five additional minor edits',
     included: [
       'Everything included in the Basic Plan package',
+      '5 free minor content edits included (adding/deleting products, updating text, replacing images, updating contact info)',
+      '1 Professional Business Email Mailbox associated with your domain (1-Year Included)',
       'Bespoke visual design matched to your corporate identity and color palette',
       'Advanced presentation sections for products, case studies, or services',
       'Interactive custom contact and quote inquiry forms',
       'Tailored UI/UX optimized for high conversion on mobile & desktop',
       'One-year high-speed cloud hosting',
-      '3 free minor content edits included',
       'Domain included if registration price is ₹1,000 or less',
     ],
     not_included: [
@@ -159,7 +163,17 @@ const plans = [
       {
         question: 'Why is Standard Plan the recommended package?',
         answer:
-          'Standard Plan provides custom design, bespoke sections, and brand-tailored styling that gives your business an elevated corporate appearance without the overhead of maintaining a database backend.',
+          'Standard Plan provides custom design, bespoke sections, 5 free minor content edits, and brand-tailored styling that gives your business an elevated corporate appearance without the overhead of maintaining a database backend.',
+      },
+      {
+        question: 'How many free minor edits are included in the Standard Plan?',
+        answer:
+          'The Standard Plan includes 5 free minor content edits (such as updating products, changing text, swapping images, or updating contact details). Major structural overhauls or layout changes are quoted separately. Additional minor edits are available at ₹1,000 for 5 edits.',
+      },
+      {
+        question: 'Is a professional business email mailbox included in the Standard Plan?',
+        answer:
+          'Yes! The Standard Plan includes 1 actual professional business email mailbox associated with your domain (e.g., info@yourdomain.com) for 1 full year at no extra charge. Renewal after year 1 is charged separately at standard email provider rates, and additional inboxes can be added anytime.',
       },
       {
         question: 'Is there a demo for the Standard Plan?',
@@ -183,27 +197,26 @@ const plans = [
     demo_url: null,
     features: [
       'Everything included in the Standard Plan where applicable',
-      'Fully customized frontend',
-      'Full-stack backend development',
-      'Custom admin dashboard',
-      'Admin login and authentication',
-      'Manage website content from the dashboard',
-      'Add, edit and delete products',
-      'Manage website information',
-      'Manage images and content',
-      'Backend database integration',
+      '1 Professional Business Email Mailbox (1 Year Included)',
+      'Custom admin dashboard with secure login',
+      'Manage website content directly from dashboard (Zero editing fees)',
+      'Full-stack backend & PostgreSQL database integration',
+      'Fully customized frontend & responsive layouts',
+      'Add, edit and delete products & pricing',
+      'Manage business info, text and images',
       'Custom functionality according to agreed scope',
-      'One-year hosting',
-      'One-year service support',
+      'Website hosting included for one year',
+      'One-year priority service support',
     ],
     editing_policy:
       'No paid minor-edit packages are required for normal content changes that the client can perform through their admin panel. The client controls the supported website content through the admin dashboard. Major new features, structural redesigns and additional development work outside the agreed scope may be quoted separately.',
     additional_edits_cost: 'Self-service editing via your admin dashboard (zero editing fees)',
     included: [
       'Everything in the Standard Plan where applicable',
+      '1 Professional Business Email Mailbox associated with your domain (1-Year Included)',
       'Custom secure Admin Dashboard with authenticated login',
       'Full-stack backend with PostgreSQL database integration',
-      'Self-service management: add, edit, delete products & update business info',
+      'Self-service management: add, edit, delete products & update business info with zero editing fees',
       'Dynamic media and content management',
       'Custom backend logic tailored to your specific agreed workflow',
       'One-year premium cloud hosting with automated backups',
@@ -235,9 +248,14 @@ const plans = [
           'No! You get your own secure admin panel. You can add, edit, or delete products, change phone numbers, update text, and upload images yourself anytime without paying for minor edits.',
       },
       {
-        question: 'Can I manage products and content directly?',
+        question: 'Is a professional business email mailbox included in the Premium Plan?',
         answer:
-          'Yes! The Premium Plan comes with a private, authenticated admin dashboard where you can easily manage website content, products, and contact info at any time.',
+          'Yes! The Premium Plan includes 1 actual professional business email mailbox associated with your domain (e.g., info@yourdomain.com) for 1 full year. Renewal after year 1 is charged separately at standard provider rates, and extra mailboxes can be purchased if needed.',
+      },
+      {
+        question: 'Can non-technical business owners manage the dashboard?',
+        answer:
+          'Absolutely. The dashboard is crafted with an intuitive, clean interface designed specifically for business owners, accessible on both desktop and mobile.',
       },
     ],
     is_active: true,

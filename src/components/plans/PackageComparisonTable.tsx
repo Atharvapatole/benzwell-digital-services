@@ -53,10 +53,17 @@ const COMPARISON_ROWS: ComparisonFeature[] = [
     fullStack: '1 Year Included',
   },
   {
+    name: 'Professional Business Email',
+    description: '1 domain-associated inbox (e.g. info@yourdomain.com) for 1 full year',
+    basic: '1 Mailbox (1 Year Included)',
+    medium: '1 Mailbox (1 Year Included)',
+    fullStack: '1 Mailbox (1 Year Included)',
+  },
+  {
     name: 'Free Minor Edits',
     description: 'Changes to text, images, contact details & products',
     basic: '3 Free Edits Included',
-    medium: '3 Free Edits Included',
+    medium: '5 Free Edits Included',
     fullStack: 'Unlimited (Self-Service CMS)',
   },
   {
@@ -200,6 +207,12 @@ export default function PackageComparisonTable({ currentSlug }: PackageCompariso
             ))}
           </tbody>
         </table>
+      </div>
+
+      <div className="p-4 sm:p-5 bg-slate-50/70 border-t border-slate-100 text-[11px] text-slate-500 leading-relaxed flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div>
+          <span className="font-semibold text-slate-700">Email Mailbox Note:</span> 1 actual professional email inbox associated with your custom domain (e.g. info@yourdomain.com) is included for the first full year across all 3 plans. Subsequent renewal is billed at standard provider rates; extra mailboxes can be added on request.
+        </div>
       </div>
     </div>
   );

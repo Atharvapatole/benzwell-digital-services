@@ -20,11 +20,14 @@ import {
   Building2,
   Edit3,
   MessageSquare,
+  Mail,
 } from 'lucide-react';
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
+
+export const revalidate = 60; // ISR cache revalidation every 60s
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
@@ -109,6 +112,16 @@ export default async function PlanDetailPage({ params }: Props) {
                       Recommended
                     </span>
                   )}
+                  {isMedium && (
+                    <span className="px-3 py-1 rounded-md bg-emerald-600 text-white text-xs font-extrabold uppercase tracking-wider flex items-center gap-1 shadow-sm">
+                      <Sparkles className="w-3.5 h-3.5 text-emerald-200" />
+                      5 Free Minor Edits Included
+                    </span>
+                  )}
+                  <span className="px-3 py-1 rounded-md bg-blue-50 text-blue-800 border border-blue-200/60 text-xs font-bold uppercase tracking-wider flex items-center gap-1">
+                    <Mail className="w-3.5 h-3.5 text-blue-600" />
+                    1 Business Email Mailbox (1 Yr Included)
+                  </span>
                 </div>
 
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
@@ -252,6 +265,20 @@ export default async function PlanDetailPage({ params }: Props) {
               </div>
               <h4 className="text-base font-bold text-slate-900">Domain Pricing Policy</h4>
               <p className="text-xs text-slate-600 leading-relaxed">{plan.domain_conditions}</p>
+            </div>
+
+            {/* Professional Business Email Mailbox Policy */}
+            <div className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 text-brand-600 flex items-center justify-center">
+                <Mail className="w-5 h-5" />
+              </div>
+              <h4 className="text-base font-bold text-slate-900">Professional Business Email</h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                1 actual professional email mailbox associated with your domain (e.g., info@yourdomain.com) is included free for the first full year. Renewal after year 1 is billed at standard email hosting provider rates. Additional mailboxes can be purchased separately.
+              </p>
+              <div className="p-2.5 rounded-lg bg-blue-50/70 border border-blue-100 text-[11px] font-semibold text-blue-900">
+                1 Mailbox (1 Year Included) &bull; Custom Domain Inbox
+              </div>
             </div>
 
             {/* Service Duration */}
