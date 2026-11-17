@@ -98,12 +98,12 @@ export default function SettingsClient({ settings, adminEmail }: SettingsClientP
       <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-            Current Authenticated Account
+            Administrative Access
           </span>
-          <div className="text-lg font-bold text-slate-900 mt-0.5">{adminEmail}</div>
+          <div className="text-lg font-bold text-slate-900 mt-0.5">BenzWell Admin Panel</div>
           <div className="text-xs text-emerald-600 font-semibold flex items-center gap-1.5 mt-1">
             <ShieldCheck className="w-4 h-4" />
-            <span>Owner Administrator • Full Access Privileges</span>
+            <span>Direct Access • Full Management Privileges</span>
           </div>
         </div>
       </div>

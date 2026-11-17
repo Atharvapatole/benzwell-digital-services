@@ -1,38 +1,23 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
-import { adminSignOut } from '@/actions/auth';
+import { usePathname } from 'next/navigation';
 import {
   LayoutDashboard,
   Users,
   Layers,
   Settings,
   ExternalLink,
-  LogOut,
   Sparkles,
-  ShieldAlert,
+  ShieldCheck,
 } from 'lucide-react';
 
 interface AdminNavProps {
-  userEmail: string;
+  userEmail?: string;
 }
 
-export default function AdminNav({ userEmail }: AdminNavProps) {
+export default function AdminNav({ userEmail = 'Administrator' }: AdminNavProps) {
   const pathname = usePathname();
-  const router = useRouter();
-
-  const [isSigningOut, setIsSigningOut] = useState(false);
-
-  const handleSignOut = async () => {
-    setIsSigningOut(true);
-    try {
-      await adminSignOut();
-    } catch {
-      window.location.href = '/admin/login';
-    }
-  };
 
   const navLinks = [
     { href: '/admin', label: 'Overview', icon: LayoutDashboard },
@@ -84,12 +69,12 @@ export default function AdminNav({ userEmail }: AdminNavProps) {
             </nav>
           </div>
 
-          {/* Right: Site Link, User Info & Logout */}
+          {/* Right: Site Link & Direct Access Badge */}
           <div className="flex items-center gap-4">
             <Link
               href="/"
               target="_blank"
-              className="hidden sm:inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-white transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-white transition-colors"
             >
               <span>View Website</span>
               <ExternalLink className="w-3.5 h-3.5" />
@@ -97,22 +82,11 @@ export default function AdminNav({ userEmail }: AdminNavProps) {
 
             <div className="h-4 w-px bg-slate-800 hidden sm:block" />
 
-            <div className="text-right hidden sm:block">
-              <div className="text-xs font-medium text-slate-200 truncate max-w-[150px]">
-                {userEmail}
-              </div>
-              <div className="text-[10px] text-emerald-400 font-semibold">Authorized Admin</div>
+            <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>Direct Admin Access</span>
             </div>
-
-            <button
-              onClick={handleSignOut}
-              disabled={isSigningOut}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-rose-950/80 hover:text-rose-300 border border-slate-700 text-xs font-semibold text-slate-300 transition-colors disabled:opacity-50"
-              title="Sign Out"
-            >
-              <LogOut className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">{isSigningOut ? 'Signing out...' : 'Logout'}</span>
-            </button>
           </div>
         </div>
 

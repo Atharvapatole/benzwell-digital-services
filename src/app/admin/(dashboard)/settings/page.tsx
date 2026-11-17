@@ -1,18 +1,10 @@
 import { getWebsiteSettings } from '@/lib/data';
-import { createServerSupabaseClient } from '@/lib/supabase/server';
 import SettingsClient from '@/components/admin/SettingsClient';
 
 export const dynamic = 'force-dynamic';
 
 export default async function AdminSettingsPage() {
-  const [settings, supabase] = await Promise.all([
-    getWebsiteSettings(),
-    createServerSupabaseClient(),
-  ]);
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const settings = await getWebsiteSettings();
 
   return (
     <div className="space-y-6">
@@ -27,7 +19,7 @@ export default async function AdminSettingsPage() {
 
       <SettingsClient
         settings={settings}
-        adminEmail={user?.email || 'admin@benzwell.in'}
+        adminEmail="admin@benzwell.in"
       />
     </div>
   );

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Sparkles, Mail, Phone, MessageSquare, ShieldCheck, Lock } from 'lucide-react';
+import { Sparkles, Mail, Phone, MessageSquare, ShieldCheck } from 'lucide-react';
 import { BusinessInfo } from '@/types';
 
 interface FooterProps {
@@ -124,12 +124,6 @@ export default function Footer({ businessInfo }: FooterProps) {
             <span className="flex items-center gap-1 text-slate-400">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Transparent Policies
             </span>
-            <Link
-              href="/admin"
-              className="flex items-center gap-1 text-slate-400 hover:text-slate-200 transition-colors"
-            >
-              <Lock className="w-3.5 h-3.5" /> Admin Portal
-            </Link>
           </div>
         </div>
       </div>
