@@ -35,7 +35,10 @@ export async function updateSession(request: NextRequest) {
   });
 
   const pathname = request.nextUrl.pathname;
-  const isAuthRoute = pathname === '/admin/login';
+  const isAuthRoute =
+    pathname === '/admin/login' ||
+    pathname === '/admin/reset-password' ||
+    pathname === '/admin/auth/callback';
   const isAdminRoute = pathname.startsWith('/admin');
 
   // Only run auth checks on admin routes to prevent unnecessary overhead on public pages
@@ -56,7 +59,7 @@ export async function updateSession(request: NextRequest) {
     return redirectResponse;
   };
 
-  // 1. If unauthenticated user tries to access /admin or any /admin/* subroute (except /admin/login)
+  // 1. If unauthenticated user tries to access /admin or any /admin/* subroute (except auth routes)
   if (!isAuthRoute && !user) {
     const redirectUrl = request.nextUrl.clone();
     redirectUrl.pathname = '/admin/login';
@@ -67,7 +70,7 @@ export async function updateSession(request: NextRequest) {
   }
 
   // 2. If authenticated user tries to access /admin/login, redirect to /admin or requested redirect
-  if (isAuthRoute && user) {
+  if (pathname === '/admin/login' && user) {
     const redirectUrl = request.nextUrl.clone();
     const queryRedirect = request.nextUrl.searchParams.get('redirect');
     redirectUrl.pathname = queryRedirect && queryRedirect.startsWith('/admin') ? queryRedirect : '/admin';
